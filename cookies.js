@@ -1,3 +1,5 @@
+// models
+
 function Cookies(type, time){
   this.type = type
   this.bake_time = time
@@ -41,8 +43,9 @@ Oven.prototype = {
   }
 }
 
+// button functions, views
+
 var create_batch = function(tray) {
-  event.preventDefault()
   var type = tray.find('input[name="batch_type"]').val()
   var time = tray.find('input[name="bake_time"]').val()
   var cookies = new Cookies(type, time)
@@ -76,11 +79,14 @@ var put_in_oven = function(tray) {
   alert('Cookies in the oven!')
 }
 
+// controllers
+
 oven = new Oven()
 prepTable = new PrepTable()
 
 $(document).ready(function(){
   $('form').on('submit', function(event) {
+    event.preventDefault()
     create_batch($(this))
   })
 
