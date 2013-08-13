@@ -1,3 +1,5 @@
+// models
+
 function Cookies(type, time){
   this.type = type
   this.bake_time = time
@@ -41,6 +43,8 @@ Oven.prototype = {
   }
 }
 
+// button functions, views
+
 var create_batch = function(tray) {
   event.preventDefault()
   var type = tray.find('input[name="batch_type"]').val()
@@ -75,6 +79,8 @@ var put_in_oven = function(tray) {
   rack.text(batch.type + " ["+batch.state+"]")
   alert('Cookies in the oven!')
 }
+
+// controllers
 
 oven = new Oven()
 prepTable = new PrepTable()
